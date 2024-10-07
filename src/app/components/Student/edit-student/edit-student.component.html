@@ -1,0 +1,90 @@
+<div class="student-form-container">
+  <h1>Create Student</h1>
+  <form class="student-form" (ngSubmit)="editStudent()">
+    <div class="form-group">
+      <label for="firstName">First Name:</label>
+      <input
+        [(ngModel)]="fName"
+        type="text"
+        id="firstName"
+        name="firstName"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name:</label>
+      <input
+        [(ngModel)]="lName"
+        type="text"
+        id="lastName"
+        name="lastName"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="father">Father's Name:</label>
+      <input
+        [(ngModel)]="fatherName"
+        type="text"
+        id="father"
+        name="father"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="mother">Mother's Name:</label>
+      <input
+        [(ngModel)]="motherName"
+        type="text"
+        id="mother"
+        name="mother"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of Birth:</label>
+      <input [(ngModel)]="dob" type="date" id="dob" name="dob" required />
+    </div>
+    <div class="form-group">
+      <label for="genderID">Gender:</label>
+      <select [(ngModel)]="gender" id="genderID" name="genderID" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option value="1">Male</option>
+        <option value="2">Female</option>
+        <option value="3">Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="image">Profile Image:</label>
+      <input
+        [(ngModel)]="image"
+        type="file"
+        id="image"
+        name="image"
+        accept="image/*"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="birthCert">Birth Certificate:</label>
+      <input
+        [(ngModel)]="birthCert"
+        type="text"
+        id="birthCert"
+        name="birthCert"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="mother">Full Address:</label>
+      <input
+        [(ngModel)]="address"
+        type="text"
+        id="mother"
+        name="mother"
+        required
+      />
+    </div>
+    <button type="submit" class="submit-btn">Save</button>
+  </form>
+</div>

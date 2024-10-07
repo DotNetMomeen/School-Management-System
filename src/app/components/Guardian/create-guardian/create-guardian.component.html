@@ -1,0 +1,363 @@
+<!-- <div class="wrapper container">
+  <form [formGroup]="guardianForm" (ngSubmit)="insertGuardian()">
+    <div class="row">
+      <div class="col-6 mt-5">
+        <h3 style="color: blue; text-align: center; margin-bottom: 40px">
+          Add Guardian Details
+        </h3>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="guardianName"
+            >Guardian Name</label
+          >
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="guardianName"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="phone">Phone No</label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="phone"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+  
+
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="nidNumber">NID Number</label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="nidNumber"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="email">Email</label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-8 offset-4">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6 mt-5">
+        <h3 style="color: blue; margin-left: 80px">Select Student</h3>
+        <div class="d-flex justify-content-end">
+          <button
+            type="button"
+            (click)="addStud()"
+            class="btn btn-outline-primary btn-sm"
+          >
+            +
+          </button>
+        </div>
+        <ng-container formArrayName="studList">
+          <ng-container *ngFor="let p of studListArray.controls; let i = index">
+            <div [formGroupName]="i">
+              <div class="row mb-2">
+                <div class="col-10">
+                  <select
+                    formControlName="studentId"
+                    class="form-select form-select-sm"
+                  >
+                    <option disabled value="null" selected>
+                      ----Select Student----
+                    </option>
+                    <option
+                      *ngFor="let item of studentist"
+                      value="{{ item.studentId }}"
+                    >
+                    {{ item.studentFName }} {{ item.studentLName }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <button
+                    (click)="removeStudList(i)"
+                    class="btn btn-outline-danger btn-sm"
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </form>
+</div> -->
+
+<!-- 
+<div class="wrapper container shadow-lg p-5 bg-light rounded">
+  <form [formGroup]="guardianForm" (ngSubmit)="insertGuardian()">
+    <div class="row">
+  
+      <div class="col-6">
+        <h3 class="text-center text-primary mb-4">
+          <i class="fas fa-user-shield"></i> Add Guardian Details
+        </h3>
+
+        <div class="row mb-3">
+          <label class="col-form-label col-4" for="guardianName">
+            <i class="fas fa-user"></i> Guardian Name
+          </label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="guardianName"
+              class="form-control form-control-sm rounded-pill shadow-sm"
+              placeholder="Enter Guardian Name"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-form-label col-4" for="phone">
+            <i class="fas fa-phone-alt"></i> Phone No
+          </label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="phone"
+              class="form-control form-control-sm rounded-pill shadow-sm"
+              placeholder="Enter Phone Number"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-form-label col-4" for="nidNumber">
+            <i class="fas fa-id-card"></i> NID Number
+          </label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="nidNumber"
+              class="form-control form-control-sm rounded-pill shadow-sm"
+              placeholder="Enter NID Number"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="col-form-label col-4" for="email">
+            <i class="fas fa-envelope"></i> Email
+          </label>
+          <div class="col-8">
+            <input
+              type="email"
+              formControlName="email"
+              class="form-control form-control-sm rounded-pill shadow-sm"
+              placeholder="Enter Email Address"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <div class="col-8 offset-4">
+            <button type="submit" class="btn btn-success rounded-pill shadow-sm w-100">
+              <i class="fas fa-save"></i> Save
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-6">
+        <h3 class="text-center text-primary mb-4">
+          <i class="fas fa-users"></i> Select Students
+        </h3>
+        <div class="d-flex justify-content-end mb-3">
+          <button
+            type="button"
+            (click)="addStud()"
+            class="btn btn-outline-primary btn-sm rounded-pill"
+          >
+            <i class="fas fa-plus-circle"></i> Add Student
+          </button>
+        </div>
+
+        <ng-container formArrayName="studList">
+          <ng-container *ngFor="let p of studListArray.controls; let i = index">
+            <div [formGroupName]="i" class="mb-3">
+              <div class="row">
+                <div class="col-10">
+                  <select
+                    formControlName="studentId"
+                    class="form-select form-select-sm rounded-pill shadow-sm"
+                  >
+                    <option disabled value="null" selected>
+                      ----Select Student----
+                    </option>
+                    <option *ngFor="let item of studentist" value="{{ item.studentId }}">
+                      {{ item.studentFName }} {{ item.studentLName }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <button
+                    (click)="removeStudList(i)"
+                    class="btn btn-outline-danger btn-sm rounded-pill"
+                  >
+                    <i class="fas fa-times-circle"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </form>
+</div> -->
+
+
+
+
+
+
+
+
+<div class="wrapper container">
+  <form [formGroup]="guardianForm" (ngSubmit)="insertGuardian()">
+    <div class="row">
+  
+      <div class="col-md-6 mt-5">
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <h3 class="text-center text-primary mb-4">Add Guardian Details</h3>
+         
+            <div class="row mb-3">
+              <label class="col-form-label col-4" for="guardianName">
+                Guardian Name
+              </label>
+              <div class="col-8">
+                <input
+                  type="text"
+                  formControlName="guardianName"
+                  class="form-control form-control-sm"
+                  placeholder="Enter Guardian Name"
+                />
+              </div>
+            </div>
+      
+            <div class="row mb-3">
+              <label class="col-form-label col-4" for="phone">Phone No</label>
+              <div class="col-8">
+                <input
+                  type="text"
+                  formControlName="phone"
+                  class="form-control form-control-sm"
+                  placeholder="Enter Phone Number"
+                />
+              </div>
+            </div>
+           
+            <div class="row mb-3">
+              <label class="col-form-label col-4" for="nidNumber">
+                NID Number
+              </label>
+              <div class="col-8">
+                <input
+                  type="text"
+                  formControlName="nidNumber"
+                  class="form-control form-control-sm"
+                  placeholder="Enter NID Number"
+                />
+              </div>
+            </div>
+         
+            <div class="row mb-3">
+              <label class="col-form-label col-4" for="email">Email</label>
+              <div class="col-8">
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control form-control-sm"
+                  placeholder="Enter Email Address"
+                />
+              </div>
+            </div>
+        
+            <div class="row mb-2">
+              <div class="col-8 offset-4">
+                <button type="submit" class="btn btn-primary w-50">
+                   Save
+                </button>
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+    
+      <div class="col-md-6 mt-5">
+        <div class="card shadow-lg">
+          <div class="card-body">
+            <h3 class="text-center text-primary mb-4">Select Student</h3>
+            <div class="d-flex justify-content-end mb-3">
+              <button
+                type="button"
+                (click)="addStud()"
+                class="btn btn-outline-primary btn-sm"
+              >
+                Add Student
+              </button>
+            </div>
+            <ng-container formArrayName="studList">
+              <ng-container *ngFor="let p of studListArray.controls; let i = index">
+                <div [formGroupName]="i" class="mb-3">
+                  <div class="row">
+                    <div class="col-10">
+                      <select
+                        formControlName="studentId"
+                        class="form-select form-select-sm"
+                      >
+                        <option disabled value="null" selected>
+                          ----Select Student----
+                        </option>
+                        <option
+                          *ngFor="let item of studentist"
+                          value="{{ item.studentId }}"
+                        >
+                          {{ item.studentFName }} {{ item.studentLName }}
+                        </option>
+                      </select>
+                    </div>
+                    <div class="col-2">
+                      <button
+                        (click)="removeStudList(i)"
+                        class="btn btn-outline-danger btn-sm"
+                      >
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </ng-container>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+

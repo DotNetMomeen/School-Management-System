@@ -1,0 +1,28 @@
+<div class="student-list">
+  <h1>All Student Informations</h1>
+  <ul class="list">
+    <li class="list-item" *ngFor="let item of studentList">
+      <div class="student-info">
+        <img src="Images/{{item.image}}"  width="50px"/>
+        <p>{{ item?.studentFName}} {{ item.studentLName}}</p>
+        <p>{{ item?.fatherName }}</p>
+        <p>{{ item?.motherName }}</p>
+        <p>{{ item?.dateOfBirth }}</p>
+        <p>{{ item?.birthCertificateNumber }}</p>
+        <p>{{ item?.address }}</p>
+        <p>{{ item?.genderId ===1?"Male":item?.genderId ===2?"Female":"Others"}}</p>
+        <button
+          class="btn btn-primary"
+          style="margin-right: 5px"
+          (click)="deleteStudent(item.studentId)">
+          Delete
+        </button>
+
+        <button class="btn btn-primary" (click)="editStudent(item.studentId)">
+          Edit
+        </button>
+      </div>
+    </li>
+  </ul>
+  
+</div>

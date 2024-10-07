@@ -1,0 +1,89 @@
+<br>
+<h2 style="text-align: center; color: red;">Add School Information</h2>
+<br>
+
+<div class="container">
+
+    
+    <div class="row">
+        <h2>School</h2>
+        <div class="col-25">
+        <label for="">School Name</label>
+        </div>
+        <div class="col-75">
+        <input type="text" id="" name="" [(ngModel)]="school.schoolName">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-25">
+            <label for="">Eshtablish Year</label>
+        </div>
+        <div class="col-75">
+            <input type="text" id="" name="" [(ngModel)]="school.establishedYear">
+        </div>
+  
+    </div>
+    <div class="row">
+        <div class="col-25">
+        <label for="">Location</label>
+        </div>
+        <div class="col-75">
+        <input type="text" id="" name="" [(ngModel)]="school.schoolLocation">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+        <label for="">Email</label>
+        </div>
+        <div class="col-75">
+        <input type="text" id="" name="" [(ngModel)]="school.email">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <h3>Add Buildings</h3>
+        <div class="col-25">
+        <label for="">Building Name</label> 
+        </div>
+        <div class="col-75">
+        <input type="text" id="" name="" [(ngModel)]="Buildings.buildingName" >
+        </div>
+    </div>
+    <div>
+        <button (click)="addSchool()" class="add">Add Building</button>
+        <button (click)="AddSchoolBuilding()">AddProductNCatagoryForApi</button>
+    </div>
+    <!-- <div>
+        <button (click)="AddSchoolBuilding()" style="margin: 10px;">Save to List</button>
+        
+    </div> -->
+    
+    <div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Building Name</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (p of tempSchool; track $index) {
+                    <tr>
+                        <td>{{p.buildingName}}</td>
+                        
+                        <td>
+                            <button (click)="edit(p)" style="background-color: rgb(207, 204, 16);">Edit</button>
+                            <button (click)="del(p)" style="background-color: red;">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+         
+        </table>
+       
+    </div>
+
+   
+</div>
+

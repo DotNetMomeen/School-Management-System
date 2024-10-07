@@ -1,0 +1,53 @@
+
+.student-list {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.list {
+  list-style-type: none;
+}
+
+.list-item {
+  padding: 20px;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.list-item:hover {
+  background-color: #e0f7fa;
+}
+
+.student-info h2 {
+  color: #00796b;
+  margin-bottom: 5px;
+}
+
+.student-info p {
+  color: #555;
+  margin: 3px 0;
+}
+
+@media (max-width: 768px) {
+  .student-list {
+    padding: 15px;
+  }
+
+  .list-item {
+    padding: 15px;
+  }
+}

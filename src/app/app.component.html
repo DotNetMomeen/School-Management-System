@@ -1,0 +1,52 @@
+<div class="menu-bar">
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
+  <img
+    src="https://gmis.edu.bd/assets/img/logo/logo_long.png"
+    alt="Image"
+    style="height: 200px; width: 100%"
+  />
+  <ul>
+    <li class="active fa fa-home"><a href="">Home</a></li>
+    <li>
+      <a href=""><i class="fa fa-user"></i> About</a>
+    </li>
+    <li>
+      <a href=""><i class="fa fa-graduation-cap">Academic</i></a>
+      <div class="sub-manu-1">
+        <ul>
+          <li><a routerLink="viewTeacher" href="#">Teacher Portel</a></li>
+          <li><a routerLink="viewGuardian" href="#">Guardians</a></li>
+
+          <li><a href="#">Curriculum</a></li>
+          <li><a href="#">Add-School Hello</a></li>
+          <li><a href="#">Show School</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a href=""><i class="fa fa-users">Admission</i></a>
+      <div class="sub-manu-1">
+        <ul>
+          <li class="hover-me">
+            <a href="#">Student-Portal</a><i class="fa fa-angle-right"></i>
+            <div class="sub-manu-2">
+              <ul>
+                <li>
+                  <a href="#" routerLink="/student/create"
+                    ><h5>Apply Now</h5></a
+                  >
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#" routerLink="/student/list">Student-List</a></li>
+        </ul>
+      </div>
+    </li>
+    <li>
+      <a href=""><i class="fa fa-phone"> Contact</i></a>
+    </li>
+  </ul>
+</div>
+
+<router-outlet />

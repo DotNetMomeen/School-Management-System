@@ -1,0 +1,42 @@
+
+<br />
+<h3>School List</h3>
+<br />
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>School</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of school">
+      <td>
+        <b>Name : </b>{{ item.schoolName }} <br />
+        <b>Location : </b>{{ item.schoolLocation }}<br />
+        <b>Email : </b>{{ item.email }}<br />
+        <b>Eshtablish Date : </b>{{ item.establishedYear }}<br />
+        <table class="table table-bordered table-striped">
+          <b>Buildings : </b>
+          <thead>
+            <tr>
+              <th>Building Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (p of item.buildings; track $index) {
+            <tr>
+              <td>{{ p.buildingName }}</td>
+            </tr>
+            }
+          </tbody>
+        </table>
+      </td>
+      <td>
+        <button class="btn btn-danger btn-sm" (click)="onDelete(item.SchoolId)">
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

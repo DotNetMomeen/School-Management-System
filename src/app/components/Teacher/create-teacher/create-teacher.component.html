@@ -1,0 +1,141 @@
+<div class="wrapper container">
+  <form [formGroup]="teacherForm" (ngSubmit)="insertTeacher()">
+    <div class="row">
+      <div class="col-6">
+        <h3 style="color: blue; text-align: center; margin-bottom: 40px">
+          Add Teacher Details
+        </h3>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="teacherName"
+            >Teacher Name</label
+          >
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="teacherName"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="dateOfBirth"
+            >Date Of Birth</label
+          >
+          <div class="col-8">
+            <input
+              type="date"
+              formControlName="dateOfBirth"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="phone">Phone</label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="phone"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4">Picture</label>
+          <div class="col-8">
+            <input
+              type="file"
+              class="form-control form-control-sm"
+              (change)="onFileSelected($event)"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="qualification"
+            >Qualification</label
+          >
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="qualification"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="genderId">Gender</label>
+          <div class="col-8">
+            <select
+              formControlName="genderId"
+              class="form-select form-select-sm"
+            >
+              <option value="" disabled selected>--Select Gender--</option>
+              <option *ngFor="let p of gender" value="{{ p.genderId }}">
+                {{ p.genderName }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="joinDate">Join Date</label>
+          <div class="col-8">
+            <input
+              type="date"
+              formControlName="joinDate"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-8 offset-4">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h3 style="color: blue; margin-left: 80px">Select Subject</h3>
+        <div class="d-flex justify-content-end">
+          <button
+            type="button"
+            (click)="addSub()"
+            class="btn btn-outline-primary btn-sm"
+          >
+            +
+          </button>
+        </div>
+        <ng-container formArrayName="subList">
+          <ng-container *ngFor="let p of subListArray.controls; let i = index">
+            <div [formGroupName]="i">
+              <div class="row mb-2">
+                <div class="col-10">
+                  <select
+                    formControlName="subjectId"
+                    class="form-select form-select-sm"
+                  >
+                    <option disabled value="null" selected>
+                      ----Select----
+                    </option>
+                    <option
+                      *ngFor="let item of subjectList"
+                      value="{{ item.subjectId }}"
+                    >
+                      {{ item.subjectName }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <button
+                    (click)="removeSubList(i)"
+                    class="btn btn-outline-danger btn-sm"
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,102 @@
+<div class="wrapper container">
+  <form [formGroup]="guardianForm" (ngSubmit)="updateGuardian()">
+    <div class="row">
+      <div class="col-6">
+        <h2 class="display-5">Update Guardian Data</h2>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="guardianName"
+            >Guardian Name</label
+          >
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="guardianName"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="phone">Phone No</label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="phone"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="email">Email</label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <label class="col-form-label col-4" for="nidNumber">NID Number</label>
+          <div class="col-8">
+            <input
+              type="text"
+              formControlName="nidNumber"
+              class="form-control form-control-sm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-2">
+          <div class="col-8 offset-4">
+            <button type="submit" class="btn btn-primary">Update</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <h2>Select Students</h2>
+        <div class="d-flex justify-content-end">
+          <button
+            type="button"
+            (click)="addStud()"
+            class="btn btn-outline-primary btn-sm"
+          >
+            +
+          </button>
+        </div>
+        <ng-container formArrayName="studList">
+          <ng-container *ngFor="let p of studListArray.controls; let i = index">
+            <div [formGroupName]="i">
+              <div class="row mb-2">
+                <div class="col-10">
+                  <select
+                    formControlName="studentId"
+                    class="form-select form-select-sm"
+                  >
+                    <option disabled value="null" selected>
+                      ----Select----
+                    </option>
+                    <option
+                      *ngFor="let item of studentList"
+                      value="{{ item.studentId }}"
+                    >
+                      {{ item.studentFName }} {{ item.studentLName }}
+                    </option>
+                  </select>
+                </div>
+                <div class="col-2">
+                  <button
+                    (click)="removeStudList(i)"
+                    class="btn btn-outline-danger btn-sm"
+                  >
+                    X
+                  </button>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </form>
+</div>

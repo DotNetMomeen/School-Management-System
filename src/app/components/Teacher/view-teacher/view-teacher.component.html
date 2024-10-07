@@ -1,0 +1,64 @@
+<div class="row no-gutter border p-2">
+  <div class="col">
+    <div class="d-flex justify-content-between">
+      <h3 style="text-align: center; color: crimson">Teachers Info</h3>
+      <div class="d-flex justify-content-end mb-4">
+        <button
+          type="button"
+          [routerLink]="['/createTeacher']"
+          class="btn btn-outline-primary btn-sm me-2"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+    <div *ngFor="let item of teacherList" class="card mb-4">
+      <div class="card-header">
+        <div class="col-10">
+          <div class="d-flex justify-content-end">
+            <button
+              [routerLink]="['/masterdetails-edit', item.teacherId]"
+              class="btn btn-outline-success btn-sm"
+            >
+              Edit
+            </button>
+            &nbsp;
+            <button
+              class="btn btn-outline-danger btn-sm"
+              (click)="confirmDelete(item)"
+            >
+              delete
+            </button>
+          </div>
+
+          <span>
+            <img
+              src="http://localhost:5028/Images/{{ item.teacherImage }}"
+              width="32"
+              class="img"
+            /> </span
+          ><br />
+          <b>Name: </b> {{ item.teacherName }} | <b>Date Of Birth:</b>
+          {{ item.dateOfBirth }}<br /><b>Phone: </b> {{ item.phone }} |
+          <b>Qualification: </b> {{ item.qualification }} <br />
+          <b>Join Date:</b>{{ item.joinDate }} <b>Gender</b>
+          {{ getGenderName(item.genderId) }}
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Subjects</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of item.subjectsList">
+              <td># &nbsp;{{ getSubName(p.subjectId) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

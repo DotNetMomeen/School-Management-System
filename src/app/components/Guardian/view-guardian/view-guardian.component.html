@@ -1,0 +1,232 @@
+<!-- <div class="row no-gutter border p-2">
+  <div class="col">
+    <div class="d-flex justify-content-between">
+      <h3 style="text-align: center; color: crimson">Guardian Info</h3>
+      <div class="d-flex justify-content-end mb-4">
+        <button
+          type="button"
+          [routerLink]="['/createGuardian']"
+          class="btn btn-outline-primary btn-sm me-2"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+    <div *ngFor="let item of guardianList" class="card mb-4">
+      <div class="card-header">
+        <div class="col-10">
+          <div class="d-flex justify-content-end">
+            <button
+              [routerLink]="['/edit-Guardian', item.guardianId]"
+              class="btn btn-outline-success btn-sm"
+            >
+              Edit
+            </button>
+            &nbsp;
+            <button
+              class="btn btn-outline-danger btn-sm"
+              (click)="confirmDelete(item)"
+            >
+              delete
+            </button>
+          </div>
+
+          <b>Name: </b> {{ item.guardianName }} | <b>Phone No: </b>
+          {{ item.phone }}<br /><b>Email: </b> {{ item.email }} |
+          <b>NID No: </b> {{ item.nidNumber }}
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of item.studentsList">
+              <td># &nbsp;{{ getStudName(p.studentId) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- 
+<div class="row no-gutter border p-3">
+  <div class="col">
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3 class="text-center" style="color: crimson;">Guardian Info</h3>
+      <div>
+        <button type="button" [routerLink]="['/createGuardian']" class="btn btn-primary btn-sm shadow-sm">
+          <i class="bi bi-plus-circle me-1"></i> Add Guardian
+        </button>
+      </div>
+    </div>
+
+
+    <div *ngFor="let item of guardianList" class="card mb-4 shadow-sm rounded-3">
+      <div class="card-header bg-light d-flex justify-content-between align-items-center">
+        <div>
+          <b>Name:</b> {{ item.guardianName }} |
+          <b>Phone No:</b> {{ item.phone }} <br />
+          <b>Email:</b> {{ item.email }} |
+          <b>NID No:</b> {{ item.nidNumber }}
+        </div>
+        <div>
+          <button
+            [routerLink]="['/edit-Guardian', item.guardianId]"
+            class="btn btn-outline-success btn-sm me-2"
+          >
+            <i class="bi bi-pencil-square"></i> Edit
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            (click)="confirmDelete(item)"
+          >
+            <i class="bi bi-trash"></i> Delete
+          </button>
+        </div>
+      </div>
+
+      <div class="card-body bg-light">
+        <table class="table table-bordered table-striped table-sm">
+          <thead class="table-dark text-center">
+            <tr>
+              <th>Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of item.studentsList">
+              <td># &nbsp;{{ getStudName(p.studentId) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+<!-- <div class="row no-gutter border p-2">
+  <div class="col">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 style="text-align: center; color: #d9534f;">Guardian Info</h3>
+      <div>
+        <button
+          type="button"
+          [routerLink]="['/createGuardian']"
+          class="btn btn-primary btn-sm me-2"
+        >
+          <i class="fas fa-plus"></i> Add
+        </button>
+      </div>
+    </div>
+    
+    <div *ngFor="let item of guardianList" class="card mb-4 shadow-sm rounded">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <div class="col-10 text-dark">
+          <b>Name: </b> {{ item.guardianName }} | 
+          <b>Phone No: </b> {{ item.phone }}<br />
+          <b>Email: </b> {{ item.email }} | 
+          <b>NID No: </b> {{ item.nidNumber }}
+        </div>
+        <div>
+          <button
+            [routerLink]="['/edit-Guardian', item.guardianId]"
+            class="btn btn-outline-success btn-sm me-1"
+          >
+            <i class="fas fa-edit"></i> Edit
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm"
+            (click)="confirmDelete(item)"
+          >
+            <i class="fas fa-trash-alt"></i> Delete
+          </button>
+        </div>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>Students</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of item.studentsList">
+              <td># &nbsp;{{ getStudName(p.studentId) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+
+
+
+
+
+
+
+<div class="container mt-5">
+  <div class="row no-gutter border p-4 justify-content-center">
+    <div class="col-md-10">
+      <div class="text-center mb-4">
+        <h1 style="color: crimson; font-weight: bold;">Guardian Information</h1>
+        <button
+          type="button"
+          [routerLink]="['/createGuardian']"
+          class="btn btn-outline-primary btn-lg d-flex justify-content-end"
+        >
+          Add Guardian
+        </button>
+      </div>
+      <div *ngFor="let item of guardianList" class="card mb-4 shadow">
+        <div class="card-header">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <b>Name: </b> {{ item.guardianName }} |
+              <b> Phone No: </b> {{ item.phone }}<br />
+              <b>Email: </b> {{ item.email }} |
+              <b> NID No: </b> {{ item.nidNumber }}
+            </div>
+            <div>
+              <button
+                [routerLink]="['/edit-Guardian', item.guardianId]"
+                class="btn btn-outline-success btn-sm"
+              >
+                Edit
+              </button>
+              <button
+                class="btn btn-outline-danger btn-sm ms-2"
+                (click)="confirmDelete(item)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Students</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let p of item.studentsList">
+                <td># &nbsp;{{ getStudName(p.studentId) }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
